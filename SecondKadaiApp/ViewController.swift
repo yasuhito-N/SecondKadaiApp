@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var userName: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func unwind(segue: UIStoryboardSegue){
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)-> () {
+        // segueから遷移先のResultViewControllerを取得する
+        let resultViewController:ResultViewController = segue.destinationViewController as! ResultViewController
 
+        resultViewController.x = userName.text!
+    }
 
 }
-
